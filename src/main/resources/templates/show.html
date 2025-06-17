@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bus Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .btn-add {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-add:hover {
+            background-color: #218838;
+        }
+
+        .search-box {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .search-box label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-search {
+            margin-top: 20px;
+            padding: 10px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-search:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+  <form action="/handles">
+    <h2>Bus Tracker</h2>
+    <button class="btn-add" type="submit">+ Add Bus Details</button>
+    </form>
+</div>
+
+<div class="search-box">
+    <form method="get" action="/search">
+        <label for="fromPlace">From:</label>
+        <input type="text" id="fromPlace" name="fromPlace" required>
+
+        <label for="toPlace">To:</label>
+        <input type="text" id="toPlace" name="toPlace" required>
+
+        <button type="submit" class="btn-search">Search Buses</button>
+    </form>
+</div>
+
+</body>
+
+
+
+
+</body>
+</html>
