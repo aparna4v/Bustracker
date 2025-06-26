@@ -1,6 +1,7 @@
 package com.ty.dto;
 
 import java.time.LocalTime;
+
 import java.util.Date;
 
 
@@ -11,8 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 
 @Entity
@@ -23,8 +22,7 @@ public class Stop {
 	
 	private String stopname;
 	
-	@Temporal(TemporalType.TIME)
-	private Date arrivaltime;
+  private LocalTime arrivaltime;
 	
 	@ManyToOne
 	@JoinColumn
@@ -48,12 +46,13 @@ public class Stop {
 	public void setStopname(String stopname) {
 		this.stopname = stopname;
 	}
-	public Date getArrivaltime() {
+	public LocalTime getArrivaltime() {
 		return arrivaltime;
 	}
-	public void setArrivaltime(Date arrivaltime) {
+	public void setArrivaltime(LocalTime arrivaltime) {
 		this.arrivaltime = arrivaltime;
 	}
+	
 	
 
 }

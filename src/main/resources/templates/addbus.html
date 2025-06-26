@@ -94,17 +94,16 @@
          <label>Stops & Arrival Times</label>
         <div id="stopContainer">
             <div class="stop-group">
-                <input type="text" name="stops[0].stopname" placeholder="Stop Name" required>
-                <input type="time" name="stops[0].arrivaltime" required>
+                <input type="text" name="stop[0].stopname" placeholder="Stop Name" required>
+                <input type="time" name="stop[0].arrivaltime" required>
             </div>
+           
+       
         </div>
+         <button type="submit" class="btn btn-submit">Submit  Details</button>
+        <button type="button" class="btn btn-add" onclick="addStop()">+ Add Stop</button>
 
-        <button type="button" class="btn btn-add" onclick="addStop()">+ Add Stop</button>
-        <button type="submit" class="btn btn-submit">Submit  Details</button>
-    </form>
-</div>
-
-<script>
+      <script>
     let stopIndex = 1;
 
     function addStop() {
@@ -114,17 +113,21 @@
         stopDiv.className = 'stop-group';
 
         stopDiv.innerHTML = `
-            <input type="text" name="stops[${stopIndex}].stopname" placeholder="Stop Name" required>
-            <input type="time" name="stops[${stopIndex}].arrivaltime" required>
+            <input type="text" name="stop[${stopIndex}].stopname" placeholder="Stop Name" required>
+            <input type="time" name="stop[${stopIndex}].arrivaltime" required>
         `;
 
         container.appendChild(stopDiv);
         stopIndex++;
     }
 </script>
-         
-         
-         
+      
+        
+    
+    </form>
+</div>
+
+
          
        
     </form>

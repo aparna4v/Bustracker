@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Stop Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 50px;
+            padding-left: 30px;
+            border-left: 4px solid #3498db;
+        }
+
+        .stop-entry {
+            position: relative;
+            padding: 15px 0;
+        }
+
+        .stop-entry::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 15px;
+            width: 12px;
+            height: 12px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+
+        .stop-time {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .arrival-time {
+            color: #e74c3c;
+            font-size: 13px;
+        }
+
+        .stop-name {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .details {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .highlight-stop {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .train-icon {
+            font-size: 20px;
+            color: #3498db;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2 th:text="'Stops for ' + ${bus.busname}">Stops for Bus</h2>
+
+<div class="timeline">
+    <div class="stop-entry" th:each="stop : ${bus.stop}">
+        <div class="stop-time">
+            <span class="arrival-time" th:text="${stop.arrivaltime}"></span>
+        </div>
+        <div class="stop-name" th:text="${stop.stopname}">Stop Name</div>
+        <div class="details">
+           
+           
+        </div>
+    </div>
+</div>
+<a href="/show" style="font-size: 16px;">&#8592; Back to Home</a>
+</body>
+</html>

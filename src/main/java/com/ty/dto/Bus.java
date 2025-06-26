@@ -20,9 +20,9 @@ public class Bus {
 	private String toplace;
 	
 	@OneToMany(mappedBy = "bus",cascade = CascadeType.ALL)
-	private List<Stop> stop = new ArrayList<Stop>();
+	private List<Stop> stop =new ArrayList<Stop>();
 	
-		public List<Stop> getStop() {
+	public List<Stop> getStop() {
 		return stop;
 	}
 	public void setStop(List<Stop> stop) {

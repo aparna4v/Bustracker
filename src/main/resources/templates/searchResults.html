@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Search Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .no-results { color: red; font-weight: bold; }
+        a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+
+<h2>Available Buses</h2>
+
+<div th:if="${#lists.isEmpty(buses)}" class="no-results">
+    No buses found for selected stops.
+</div>
+
+<table th:if="${!#lists.isEmpty(buses)}">
+    <thead>
+        <tr>
+            <th>Bus Name</th>
+            <th>Stop Name</th>
+            <th>Arrival Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="bus : ${buses}">
+            <td>
+                <a th:href="@{'/showstop/' + ${bus.busid}}" th:text="${bus.busname}"></a>
+            </td>
+            <td th:text="${stop1}"></td>
+            <td>
+                <span th:each="stop : ${bus.stop}"
+                      th:if="${stop.stopname.equalsIgnoreCase(stop1)}"
+                      th:text="${stop.arrivaltime}"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="/show" style="font-size: 16px;">&#8592; Back to Home</a>
+
+</body>
+</html>
